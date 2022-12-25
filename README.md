@@ -1,2 +1,2 @@
-# nmasteReact
+# namasteReact
 Learn React by akshya sainee 
