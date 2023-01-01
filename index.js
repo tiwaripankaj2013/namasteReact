@@ -1,3 +1,4 @@
+import React from "react";
 const heading = React.createElement('h1',{'className':'test','key':'abc'},'Hellow react program');
 console.log(heading);
 const root  = ReactDOM.createRoot(document.getElementById('root'));
