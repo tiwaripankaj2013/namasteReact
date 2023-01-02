@@ -1,22 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-const heading = React.createElement(
-    'h1',
-    {'className':'test','key':'abc'},
-    'Hellow react program'
-    );
-// console.log(heading);
-const heading1 = React.createElement('h1', 
-{ className: 'text-red', id: 'test1', key:'h1' }, 
-'Heading1');
-const heading2 = React.createElement(
-    'h2', 
-{ className: 'text-green', id: 'test2', key :'h2' }, 
-'Heading1');
-const container = React.createElement(
-    'div', 
-{ id: 'container', }, 
-[heading1, heading2]
-);
+// const Header = () => <h1>Namaste React </h1>
+
+const heading1 = (<h1>Heading1 </h1>);//element
+const Heading2 = () => <h2>Heaading2 Welcome to the  </h2> ;
+const SubTitle = () => (
+    <div className="text-red">
+        <p>Welcome to the SubTitle</p>
+    </div>
+)
+const Container = () => {
+return (
+    <div className="container">
+        {heading1}
+        {SubTitle()}
+        <Heading2/>
+    </div>
+)
+}
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(container);
+root.render(Container());
