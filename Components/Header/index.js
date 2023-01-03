@@ -2,7 +2,7 @@ import React from 'react';
 import {HomeIcon, UserIcon,BellIcon,MagnifyingGlassIcon} from '@heroicons/react/24/outline';
 export const  Header = () =>{
   return (
-    <header className='flex py-2 px-5 bg-gradient-to-r from-indigo-500 via-purple-500 to-purple-800 justify-center'>
+    <header className='flex py-2 sticky top-0 px-5 bg-gradient-to-r from-indigo-500 via-purple-500 to-purple-800 justify-center'>
         <div className='w-1/4'>
             <HomeIcon className='w-10 h-10 text-white' />
         </div>
