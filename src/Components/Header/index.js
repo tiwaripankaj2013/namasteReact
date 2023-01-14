@@ -1,7 +1,8 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {HomeIcon, UserIcon,BellIcon,MagnifyingGlassIcon} from '@heroicons/react/24/outline';
 import logo from '../../assets/logo.png'
-export const  Header = ({Brand}) =>{
+export const  Header = () =>{
+  const [search,setSearch] = useState('');
   return (
     <header className='flex py-2 sticky top-0 px-5 bg-gradient-to-r from-indigo-500 via-purple-500 to-purple-800 justify-center'>
         <div className='w-1/4'>
