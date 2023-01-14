@@ -1,10 +1,12 @@
 import React from 'react';
 import {HomeIcon, UserIcon,BellIcon,MagnifyingGlassIcon} from '@heroicons/react/24/outline';
-export const  Header = () =>{
+import logo from '../../assets/logo.png'
+export const  Header = ({Brand}) =>{
   return (
     <header className='flex py-2 sticky top-0 px-5 bg-gradient-to-r from-indigo-500 via-purple-500 to-purple-800 justify-center'>
         <div className='w-1/4'>
-            <HomeIcon className='w-10 h-10 text-white' />
+            {/* <HomeIcon className='w-10 h-10 text-white' /> */}
+            <img src={logo} title='Khana Khajana' className='w-16' />
         </div>
         <div className='w-3/6'>
           <div className='rounded-lg border-gray-400 relative shadow-lg w-4/5 mx-auto'>

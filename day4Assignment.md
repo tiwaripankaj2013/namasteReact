@@ -22,7 +22,6 @@ The algorithm React uses to diff one tree with another to determine which parts 
 What is React Fiber?
     React Fiber is an ongoing reimplementation of React's core algorithm. It is the culmination of over two years of research by the React team.
 The goal of React Fiber is to increase its suitability for areas like animation, layout, and gestures. Its headline feature is incremental rendering: the ability to split rendering work into chunks and spread it out over multiple frames.
-
 Why we need keys in React? When do we need keys in React?
 When comparing two React DOM elements of the same type, React looks at the attributes of both, keeps the same underlying DOM node, and only updates the changed attributes.
 <ul>
@@ -67,4 +66,4 @@ What are React Hooks?
 Hooks simple js function which gives some functionality 
  Hooks allow you to reuse stateful logic without changing your component hierarchy. This makes it easy to share Hooks among many components or with the community.
 Why do we need a useState Hook?  
-It returns a pair of values: the current state and a function that updates it. This is why we write const [count, setCount] = useState(). 
+It returns a pair of values: the current state and a function that updates it. This is why we write const [count, setCount] = useState(). useState Is a local representation of variables.
