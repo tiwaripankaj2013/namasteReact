@@ -1,7 +1,8 @@
 
-Is JSX mandatory for React? 
-    No
-Is ES6 mandatory for React?
+## Is 'JSX' mandatory for React? 
+A: No `JSX` is an Extension Syntax that allows writing HTML and Javascript together easily in React and is used to create React elements. These elements are then rendered to the React DOM. Each JSX element is just to make use of React easy and for calling React.createElement(component, props, …children) with less work. So, anything that is done with JSX can also be done with just plain JavaScript. So `JSX` is not mandatory but is used for writing better and clean code instead of writing code using `React.CreateElement`.
+
+## Is ES6 mandatory for React?
     No
 {TitleComponent} vs {<TitleComponent/>;}vs {<TitleComponent></TitleComponent>}in JSX
 TitleComponent : it's a react element
@@ -67,3 +68,6 @@ Hooks simple js function which gives some functionality
  Hooks allow you to reuse stateful logic without changing your component hierarchy. This makes it easy to share Hooks among many components or with the community.
 Why do we need a useState Hook?  
 It returns a pair of values: the current state and a function that updates it. This is why we write const [count, setCount] = useState(). useState Is a local representation of variables.
+
+
+
