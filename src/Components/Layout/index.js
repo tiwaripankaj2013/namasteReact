@@ -3,7 +3,8 @@ import ShimmerCards from '../common/ShimmerCard';
 import { Restorent } from '../common/Restorent';
 import { GridView } from '../common/GridView';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
-
+import { Banner } from '../Banner/Index';
+import {IMG_CDN_URL,CrausalData} from '../../../constant';
 function filterData(searchText, restaurants) {
   const filterData = restaurants.filter((restaurant) =>
     restaurant?.data?.name?.toLowerCase()?.includes(searchText.toLowerCase())
@@ -15,6 +16,8 @@ const Layout = () => {
     const [allRestaurants,setAllRestaurants] = useState([]);
     const [filterdRestaurants,setFilterdRestaurants] = useState([]);
     const [searchText, setSearchText] = useState('');
+    const [crausalData,setCrausalData] = useState(CrausalData.data.data.cards);
+    console.log(crausalData);
     // console.log(allRestaurants);
     useEffect(()=> {
         getRestaurant();
@@ -24,6 +27,7 @@ const Layout = () => {
         const json  = await data.json();
         setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
         setFilterdRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+        // setCrausalData(json?.data?.cards[1]?.data?.data?.cards);
     } 
     return (allRestaurants.length<=0)?<ShimmerCards data={12} />:(
         <>
@@ -41,6 +45,7 @@ const Layout = () => {
             
           </button>
         </div>
+        <Banner staticPath={IMG_CDN_URL} crausalData={crausalData} />
         <GridView>
         {filterdRestaurants.map((restaurant) => <Restorent key={restaurant.data.id} {...restaurant.data} />)}
       </GridView>

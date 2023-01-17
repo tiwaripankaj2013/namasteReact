@@ -1812,7 +1812,7 @@ export const RestorentData = [
         "subtype": "basic"
     }
 ]
-const CrausalData = {
+export const CrausalData = {
     "data": {
         "type": "carousel",
         "subtype": "topCarousel",
