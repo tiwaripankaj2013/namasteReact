@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {UserIcon, BellIcon, MagnifyingGlassIcon,
   ShoppingBagIcon, ReceiptPercentIcon } from '@heroicons/react/24/outline';
 import logo from '../../assets/logo.png';
+import { Link } from 'react-router-dom';
 
 function filterData (searchText,restaurants){
   const filterData  = restaurants.filter((restaurant)=>{
@@ -14,10 +15,11 @@ export const Header = ({allRestaurants,setFilteredRestaurants}) => {
   const [searchText, setSearchText] = useState('');
 
   return (
-    <header className='flex py-2 sticky top-0 px-5 bg-gradient-to-r from-indigo-500 via-purple-500 to-purple-800 justify-center'>
+    <header className='flex py-2 sticky top-0 px-5 bg-gradient-to-r z-50 from-indigo-500 via-purple-500 to-purple-800 justify-center'>
       <div className='w-1/4'>
-        {/* <HomeIcon className='w-10 h-10 text-white' /> */}
-        <img src={logo} title='Khana Khajana' className='w-16' />
+        <Link to='/'>
+          <img src={logo} title='Khana Khajana' className='w-16' />
+        </Link>
       </div>
       <div className='w-3/6'>
         <div className='rounded-lg border-gray-400 relative shadow-lg w-4/5 mx-auto'>
@@ -38,7 +40,7 @@ export const Header = ({allRestaurants,setFilteredRestaurants}) => {
           <li className='px-1 inline-block' key="discount"><ReceiptPercentIcon className='w-5 h-5 text-white' /></li>
           <li className='px-1 inline-block' key="cart"><ShoppingBagIcon className='w-5 h-5 text-white' /></li>
           <li className='px-1 inline-block' key="notification"><BellIcon className='w-5 h-5 text-white' /></li>
-         {!isLoggedIn ?(<li className='px-1 inline-block text-white cursor-pointer' onClick={()=>setIsLoggedIn(true)}>Sign In</li>): 
+         {!isLoggedIn ?(<li className='px-1 inline-block text-white cursor-pointer'><Link to="/login">Sign In</Link></li>): 
          (<li className='px-1 inline-block cursor-pointer group relative' key="user">
             <UserIcon className='w-5 h-5 text-white' />
             <ul className=' bg-violet-700 text-left list-none z-10 hidden group-hover:block absolute top-5 right-0 text-white'>

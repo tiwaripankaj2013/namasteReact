@@ -10,10 +10,10 @@ export const ShimmerCard = () => {
           <div className="mt-4">
             <h5 className="mb-1 text-xl font-semibold leading-6 bg-gray-400 h-5 animate-pulse"></h5>
             <p className='text-xs text-gray-300 leading-3 mb-1 bg-gray-400 animate-pulse h-3'></p>
-            <p className='flex text-xs items-center justify-between'>
-            <span className=' inline-block text-gray-200 bg-gray-400 h-3 w-20 animate-pulse'></span>
-            <span className=' inline-block text-gray-200 bg-gray-400 h-3 w-20 animate-pulse'></span>
-            <span className=' inline-block text-gray-200 bg-gray-400 h-3 w-20 animate-pulse'></span>
+            <p className='flex text-xs items-center justify-between mb-1'>
+            <span className=' inline-block text-gray-200 bg-gray-400 h-3 w-16 animate-pulse'></span>
+            <span className=' inline-block text-gray-200 bg-gray-400 h-3 w-16 animate-pulse'></span>
+            <span className=' inline-block text-gray-200 bg-gray-400 h-3 w-16 animate-pulse'></span>
             </p>
             <p className=' text-orange-700 text-base bg-gray-400 h-4 animate-pulse'></p>
           </div>

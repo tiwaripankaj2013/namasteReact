@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body{
+    @apply bg-gray-800 text-gray-200;
+}
 .text-red{
     color: brown;
 }
