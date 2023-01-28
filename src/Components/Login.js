@@ -17,6 +17,7 @@ function LoginPage() {
    else {setError(true);}
     // Perform login logic here
   }
+  console.log(useState);
 
   return (
     <div className="bg-gray-800 h-screen flex justify-center items-center md:w-6/12 mx-auto">

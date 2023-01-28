@@ -37,6 +37,14 @@ export const Header = ({allRestaurants,setFilteredRestaurants}) => {
       </div>
       <div className='w-1/4 flex items-center flex-row-reverse'>
         <ul className='list-none text-right flex items-center'>
+          <li className='list-none text-2xl font-medium'><Link to="/hashRouter">Hash Router </Link> </li>
+          <li className='px-1 inline-block' key="about"><Link className=' text-white' to="/about">About Us</Link>
+          <ul className='list-none'>
+            <li>
+              <Link to="/about/details">Details</Link>
+            </li>
+          </ul>
+          </li>
           <li className='px-1 inline-block' key="discount"><ReceiptPercentIcon className='w-5 h-5 text-white' /></li>
           <li className='px-1 inline-block' key="cart"><ShoppingBagIcon className='w-5 h-5 text-white' /></li>
           <li className='px-1 inline-block' key="notification"><BellIcon className='w-5 h-5 text-white' /></li>
@@ -49,7 +57,7 @@ export const Header = ({allRestaurants,setFilteredRestaurants}) => {
               <li className='px-3 py-1 cursor-pointer hover:bg-purple-700' key="logout" onClick={() =>setIsLoggedIn(false)}>Logout</li>
             </ul>
           </li>)}
-         
+         <li className='px-3 py-1 cursor-pointer hover:bg-purple-700' key="logout"><Link to="/contact">Contact</Link></li>
         </ul>
       </div>
     </header>

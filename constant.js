@@ -1882,3 +1882,7 @@ export const CrausalData = {
         }
     }
 }
+export const DetailsServices = {
+    title:'service1',
+    details:'Loreum lipsum',
+}

@@ -27,10 +27,29 @@ output: Welcome  //render first
         find some word // after render call useEffect
 
 ## Q: What is the difference between JS expression and JS statement.
-A:
-## Q: What is Conditional Rendering, explain with a code example
+A: In JavaScript, an expression is any valid unit of code that can be evaluated to a value, while a statement is a unit of code that performs some action, but does not return a value.
+'JS expression' : ```let x = 2 + 2;``` (This is a valid expression, that return 4 and assigns it to x.)
+```2 + 2;``` (This is also a valid expression, that return 4)
+
+
+## Q: What is Conditional Rendering, explain with a code example?
+A: In JavaScript, conditional rendering is a technique that allows you to conditionally render elements or components based on certain conditions. This can be done using control flow statements such as 'if', 'else', and 'switch'.
+'let isLoggedIn = true;
+if (isLoggedIn) {
+  console.log("Welcome back!");
+} else {
+  console.log("Please log in.");
+}'
+Another way to achieve conditional rendering is by using ternary operator, it's a shorthand for an if...else statement, in the following way: 
+'let isLoggedIn = true;
+console.log(isLoggedIn ? "Welcome back!" : "Please log in.");'
 ## Q: What is CORS?
 A: 'CORS' When we calling any api local system which not https that's required local project run https .
     It's showing error when any secure link call on where port running on not https 
 ## Q: What is async and await? 
-## Q: What is the use of `const json = await data.json();` in  getRestaurants()
+A: 'async' is a keyword that is used to define an asynchronous function. An asynchronous function is a function that returns a promise and can be used with the await keyword.
+'await' is a keyword that is used inside an asynchronous function to pause execution of the function until a promise is settled (i.e. resolved or rejected).
+## Q: What is the use of `const json = await data.json();` in  getRestaurants()?
+A:The 'json()' method is used to parse the body of the response as JSON. This is useful because it allows easy access to the data in a format that is commonly used for APIs.
+
+When the 'fetch()' function is used to make a request, it returns a response object that contains the data from the server. The data is often in the form of a string, which needs to be parsed before it can be used. By calling the 'json()' method on the response object, the data is automatically parsed and returned as a JavaScript object. This makes it much easier to work with and access the data in your code.
