@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import {UserIcon, BellIcon, MagnifyingGlassIcon,
   ShoppingBagIcon, ReceiptPercentIcon } from '@heroicons/react/24/outline';
 import logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
-
+import { useOnline } from '../../utils/helper';
+import { UserContext } from '../../utils/UserContext';
 function filterData (searchText,restaurants){
   const filterData  = restaurants.filter((restaurant)=>{
     restaurant?.data?.name.toLowerCase()?.includes(searchText.toLowerCase());
@@ -13,13 +14,18 @@ function filterData (searchText,restaurants){
 export const Header = ({allRestaurants,setFilteredRestaurants}) => {
   const [isLoggedIn,setIsLoggedIn] = useState(false);
   const [searchText, setSearchText] = useState('');
+const isOnline = useOnline();
 
+const {user} = useContext(UserContext);
   return (
     <header className='flex py-2 sticky top-0 px-5 bg-gradient-to-r z-50 from-indigo-500 via-purple-500 to-purple-800 justify-center'>
       <div className='w-1/4'>
         <Link to='/'>
           <img src={logo} title='Khana Khajana' className='w-16' />
         </Link>
+          {
+            !isOnline?<span className=' inline-block h-1 w-1 p-2 rounded-full bg-red-700'></span>:<span className='p-2 inline-block h-1 w-1 rounded-full bg-green-700'></span>
+          }
       </div>
       <div className='w-3/6'>
         <div className='rounded-lg border-gray-400 relative shadow-lg w-4/5 mx-auto'>
@@ -33,11 +39,11 @@ export const Header = ({allRestaurants,setFilteredRestaurants}) => {
             
           </button>
         </div>
-
+            <p className=' text-orange-600'>{user.name}</p>
       </div>
       <div className='w-1/4 flex items-center flex-row-reverse'>
         <ul className='list-none text-right flex items-center'>
-          <li className='list-none text-2xl font-medium'><Link to="/hashRouter">Hash Router </Link> </li>
+            <li><Link to="/faq">FAQ</Link> </li>
           <li className='px-1 inline-block' key="about"><Link className=' text-white' to="/about">About Us</Link>
           <ul className='list-none'>
             <li>

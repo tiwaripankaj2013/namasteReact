@@ -1,18 +1,9 @@
-import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../../../constant";
+import { useRestaurent } from "../../utils/useRestorent";
 const RestaurantMenu = ({ }) => {
   const { retaurantId } = useParams();
-  const [restaurant, setrestaurant] = useState(null);
-  useEffect(() => {
-    getRestaurantInfo();
-  }, []);
-console.log(restaurant,retaurantId);
-  async function getRestaurantInfo() {
-    const data = await fetch('https://www.swiggy.com/dapi/menu/v4/full?lat=12.9351929&lng=77.62448069999999&menuId=' + retaurantId)
-    const json = await data.json();
-    setrestaurant(json.data);
-  }
+  const restaurant = useRestaurent(retaurantId);
 
   return (!restaurant)?<p>Loading..</p>:(
     <div className="flex">

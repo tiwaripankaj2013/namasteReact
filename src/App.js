@@ -1,4 +1,4 @@
-import React from "react";
+import React,{lazy, Suspense, useState} from "react";
 import ReactDOM from "react-dom/client";
 import { Header } from "./Components/Header";
 import { Footer } from "./Components/Footer";
@@ -8,19 +8,34 @@ import Layout from "./Components/Layout";
 import RestaurantMenu from './Components/common/RestaurantMenu';
 import { About } from "./Components/About";
 import Details from "./Components/Details";
-import Contact from "./Components/Contact";
+import ShimmerCards from "./Components/common/ShimmerCard";
+import Faq from "./Components/Faq";
+import { UserContext } from "./utils/UserContext";
+import { FaqData } from "../constant";
+const  Contact = lazy (() => import("./Components/Contact"));
+
 const DetailsServices = {
     title:'Heading Details',
     services:"services"
 }
 const App = () => {
+    const [user,setUser]=useState({
+        name:"Rakesh",
+        email:"rakesh@gmail.com"
+    })
     // RestorentData is static json data 
     return (
+        <UserContext.Provider value={{
+            user:user,
+            FaqData,
+            setUser
+        }}>
         <div className="container">
             <Header />
             <Outlet />
             <Footer />
         </div>
+        </UserContext.Provider>
     )
 }
 const appRouter = createBrowserRouter([
@@ -55,12 +70,16 @@ const appRouter = createBrowserRouter([
             {
                 path:'/contact',
                 element:<Contact/>
+            },
+            {
+                path:"/faq",
+                element:<Faq/>
             }
         ]
     },
     {
         path :'hashRouter',
-        element:<LoginPage/>
+        element:<Suspense fallback={()=><ShimmerCards/>}><LoginPage/></Suspense>
     }
   
 ]);
