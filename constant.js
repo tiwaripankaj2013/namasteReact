@@ -4,8 +4,9 @@ export const IMG_CDN_URL =
     logo :'../assets/logo.png',
     name:'Khana Khajana',
   }
-export const FETCH_MENU = 'https://www.swiggy.com/dapi/menu/v4/full?lat=12.9351929&lng=77.62448069999999&menuId=';
 export const RESTORENTS_LiNK ="https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING";
+export const FETCH_MENU = 'https://www.swiggy.com/dapi/menu/v4/full?lat=12.9351929&lng=77.62448069999999&menuId=';
+
 export const CrausalData = {
     "data": {
         "type": "carousel",

@@ -1,9 +1,17 @@
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../../../constant";
+import { addItem } from "../../utils/cartSlice";
 import { useRestaurent } from "../../utils/useRestorent";
+
 const RestaurantMenu = ({ }) => {
   const { retaurantId } = useParams();
   const restaurant = useRestaurent(retaurantId);
+  const dispatch = useDispatch();
+  const addFoodItem = (item) =>{
+    dispatch(addItem(item));
+  }
+
 
   return (!restaurant)?<p>Loading..</p>:(
     <div className="flex">
@@ -20,7 +28,7 @@ const RestaurantMenu = ({ }) => {
         <h1>Menu</h1>
         <ul>
           {Object.values(restaurant?.menu?.items).map((item) => (
-            <li key={item.id}>{item.name}</li>
+            <li key={item.id}>{item.name} <button className="bg-orange-600 text-white px-1 py-2" onClick={()=>addFoodItem(item)}>Add</button></li>
           ))}
         </ul>
       </div>
