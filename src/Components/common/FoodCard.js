@@ -18,7 +18,7 @@ export const FoodCard = ({name,cloudinaryImageId,avgRating,price,description}) =
           <span className={parseFloat(avgRating)>=4? 'bg-green-700 text-white px-1': 'bg-orange-800 text-white px-1'}>{avgRating}</span>
           </p>
           <p>{description}</p>
-          <p>₹:{price}</p>
+          <p>₹:{price}/100</p>
         </div>
     </div>
   )

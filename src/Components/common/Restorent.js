@@ -8,7 +8,7 @@ export const Restorent = ({
    costForTwoString,deliveryTime ,id}) => {
   return (
     <div className="col-span-6 sm:col-span-2 lg:col-span-1">
-      <Link className="card hovercard group p-2 md:p-3 cursor-pointer block" to={"/restaurant/"+id}>
+      <Link to={"/restaurant/" +id} className="card hovercard group p-2 md:p-3 cursor-pointer block">
         <div className="relative overflow-hidden">
           <div className="fiximage blur-0 filter transition-all duration-500">
             <img

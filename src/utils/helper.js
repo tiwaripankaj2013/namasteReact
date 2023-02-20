@@ -21,16 +21,30 @@ export const useOnline = ()=>{
     return isOnline;
 } ;
 
-export const callApi = (filterdRestaurants,setFilterdRestaurants) => {
-    const [data , setData] = useState(null)
-    useEffect(()=> {
-        getRestaurant();
-    },[]);
-    async function getRestaurant(){
-        const data =  await fetch(RESTORENTS_LiNK);
-        const json  = await data.json();
-        setFilterdRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-        setData(json);
+export const useAllRestaurents = () => {
+    const [allRestaurant, setAllRestaurant] = useState([]);
+    const [filterRestaurant,setFilterRestaurant] = useState(null);
+    const [loading,setLoading] = useState(true);
+    const [error,setError] = useState(null); 
+
+    useEffect(() => {
+      getRestaurantInfo();
+    }, []);
+  
+  
+    async function getRestaurantInfo() {
+        try{
+      const data = await fetch(RESTORENTS_LiNK);
+      const res = await data.json();
+      setAllRestaurant(res?.data?.cards[2]?.data?.data?.cards);
+      setFilterRestaurant(res?.data?.cards[2]?.data?.data?.cards);
+      setLoading(false);
+      setError(null);
+        }
+        catch(err){
+            setLoading(false);
+            setError(err);
+        }
     }
-    return data;
-} 
+    return {allRestaurant,filterRestaurant,setFilterRestaurant,loading,error};
+  }
