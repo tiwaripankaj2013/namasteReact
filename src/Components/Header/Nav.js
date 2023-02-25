@@ -18,7 +18,7 @@ const Nav = () => {
                 </ul>
             </li>
             <li className='px-1 inline-block' key="discount"><ReceiptPercentIcon className='w-5 h-5 text-white' /></li>
-            <li className='px-1 inline-block' key="cart"><Link to="/cart"><ShoppingBagIcon className='w-5 h-5 text-white' />{cartItems.length}</Link></li>
+            <li className='px-1 inline-block' key="cart"><Link to="/cart" data-testid="cart"><ShoppingBagIcon className='w-5 h-5 text-white' />{cartItems.length}</Link></li>
             <li className='px-1 inline-block' key="notification"><BellIcon className='w-5 h-5 text-white' /></li>
             {!isLoggedIn ? (<li className='px-1 inline-block text-white cursor-pointer'><Link to="/login">Sign In</Link></li>) :
                 (<li className='px-1 inline-block cursor-pointer group relative' key="user">

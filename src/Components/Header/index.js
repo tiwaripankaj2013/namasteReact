@@ -16,21 +16,17 @@ export const Header = ({ allRestaurants, setFilteredRestaurants }) => {
 
   const [searchText, setSearchText] = useState('');
   const isOnline = useOnline();
-
   const { user } = useContext(UserContext);
-
- 
-
 
   return (
     <header className='flex py-2 sticky top-0 px-5 bg-gradient-to-r z-50 from-indigo-500 via-purple-500 to-purple-800 justify-center'>
       <div className='w-2/12'>
         <Link to='/'>
-          <img src={logo} title='Khana Khajana' className='w-16' />
+          <img src={logo} data-testid="logo" title='Khana Khajana' className='w-16' />
         </Link>
-        {
+       <p data-testid="online-status"> {
           !isOnline ? <span className=' inline-block h-1 w-1 p-2 rounded-full bg-red-700'></span> : <span className='p-2 inline-block h-1 w-1 rounded-full bg-green-700'></span>
-        }
+        }</p>
       </div>
       <div className='w-5/12'>
         <div className='rounded-lg border-gray-400 relative shadow-lg w-4/5 mx-auto'>

@@ -14,7 +14,7 @@ const RestaurantMenu = ({ }) => {
 
 
   return (!restaurant)?<p>Loading..</p>:(
-    <div className="flex">
+    <div className="flex" data-testid="menu">
       <div>
         <h1>Restraunt id: {retaurantId}</h1>
         <h2>{restaurant?.name}</h2>
@@ -28,7 +28,7 @@ const RestaurantMenu = ({ }) => {
         <h1>Menu</h1>
         <ul>
           {Object.values(restaurant?.menu?.items).map((item) => (
-            <li key={item.id}>{item.name} <button className="bg-orange-600 text-white px-1 py-2" onClick={()=>addFoodItem(item)}>Add</button></li>
+            <li key={item.id}>{item.name} <button data-testid="addbtn" className="bg-orange-600 text-white px-1 py-2" onClick={()=>addFoodItem(item)}>Add</button></li>
           ))}
         </ul>
       </div>

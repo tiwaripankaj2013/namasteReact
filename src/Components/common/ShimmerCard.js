@@ -1,7 +1,7 @@
 import { GridView } from './GridView';
 export const ShimmerCard = () => {
     return(
-        <div className="col-span-6 sm:col-span-2 lg:col-span-1">
+        <div data-testid="shimmer" className="col-span-6 sm:col-span-2 lg:col-span-1">
         <div className="card hovercard group p-2 md:p-3">
           <div className="relative overflow-hidden">
             <div className="fiximage transition-all duration-500 bg-gray-400 h-60 animate-pulse">
