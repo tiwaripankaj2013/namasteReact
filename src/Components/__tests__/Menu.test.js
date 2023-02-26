@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import store from "../../utils/store";
 import { StaticRouter } from "react-router-dom/server";
 import RestaurantMenu from "../common/RestaurantMenu";
+import { MENU_DATA } from "../../__mocks__/data";
 global.fetch = jest.fn(() => {
     return Promise.resolve({
       json: () => {
@@ -13,7 +14,7 @@ global.fetch = jest.fn(() => {
     });
   });
 
-  test("Add items to card",async ()=>{
+  test("Add items to card", async ()=>{
     const body = render(
         <StaticRouter>
           <Provider store={store}>

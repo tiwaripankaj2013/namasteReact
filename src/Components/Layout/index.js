@@ -26,7 +26,7 @@ const Layout = () => {
       <div className='rounded-lg border-gray-400 relative shadow-lg w-4/5 mx-auto bg-indigo-500'>
         <input type="text" data-testid="search-input" className='text-white bg-white/[0.20]  text-base w-full rounded-lg px-4 py-2 outline-none placeholder:text-white'
           value={searchText} onChange={(e) => setSearchText(e.target.value)} placeholder='Find your favourite Restorent' />
-        <button data-testid="search-btn" className=' absolute right-1 top-2 bg-transparent pr-1' onClick={() => { 
+        <button data-testid="search-btn" className='absolute right-1 top-2 bg-transparent pr-1' onClick={() => { 
           const data = filterData(searchText, allRestaurant);
           // update the state - restaurants
           setFilterRestaurant(data);

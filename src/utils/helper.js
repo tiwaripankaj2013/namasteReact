@@ -36,7 +36,7 @@ export const useAllRestaurents = () => {
         try{
       const data = await fetch(RESTORENTS_LiNK);
       const res = await data.json();
-      console.log(res);
+    //   console.log(res);
       setAllRestaurant(res?.data?.cards[2]?.data?.data?.cards);
       setFilterRestaurant(res?.data?.cards[2]?.data?.data?.cards);
       setLoading(false);

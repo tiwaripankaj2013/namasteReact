@@ -1,5 +1,5 @@
-import { fireEvent, render, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import Layout from "../Layout";
 import store from "../../utils/store";
 import { StaticRouter} from "react-router-dom/server";
@@ -13,33 +13,50 @@ global.fetch = jest.fn(()=>{
         },
     })
 })
-test('Search Results on Homepage', async () => { 
+test('Shimmer should load on Homepage', async () => { 
    const LayoutTest =  render(
    <StaticRouter>
-        <Provider store={store}><Layout/></Provider>
+        <Provider store={store}>
+            <Layout/>
+        </Provider>
+    </StaticRouter>
+   );
+   const shimmer = LayoutTest.getByTestId("res-list");
+   expect(shimmer.children.length).toBe(12);
+//    console.log(shimmer);
+ });
+test('Restaurants should load on Homepage', async () => { 
+   const LayoutTest =  render(
+   <StaticRouter>
+        <Provider store={store}>
+            <Layout/>
+        </Provider>
     </StaticRouter>
    );
    await waitFor(() => expect(LayoutTest.getByTestId("search-btn")));
-   const shimmer = LayoutTest.getByTestId("shimmer");
-   const resList = LayoutTest.getAllByTestId('res-list'); 
-   expect(shimmer.children.length).toBe(12);
-   const searchBtn = LayoutTest.getByTestId("search-btn");
-   console.log(searchBtn);
- })
-test('Search for food string', async () => { 
+  // const resList = LayoutTest.getAllByTestId('res-card');
+//    console.log(resList,"------------------");
+//    expect(resList.children.length).toBe(15);
+ });
+test('Search for string(food) on Homepage', async () => { 
    const LayoutTest =  render(
    <StaticRouter>
         <Provider store={store}><Layout/></Provider>
     </StaticRouter>
    );
    await waitFor(()=> expect(LayoutTest.getByTestId("search-btn")))
-   const input = LayoutTest.getByTestId("shimmer");
+   const input = LayoutTest.getByTestId("search-input");
    fireEvent.change(input,{
     target:{
     value:"food",
    },
 });
 
-    const searchBtn = body.getByTestId("search-btn");
-    fireEvent.click(searchBtn);
+const searchBtn = LayoutTest.getByTestId("search-btn");
+
+fireEvent.click(searchBtn);
+
+const resList = LayoutTest.getByTestId("res-list");
+
+expect(resList.children.length).toBe(4);
  })
